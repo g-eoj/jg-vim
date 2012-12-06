@@ -33,6 +33,7 @@ fi
 
 
 echo "setting up symlinks"
+lnif $endpath/.gvimrc $HOME/.gvimrc
 lnif $endpath/.vimrc $HOME/.vimrc
 lnif $endpath/.vimrc.fork $HOME/.vimrc.fork
 lnif $endpath/.vimrc.bundles $HOME/.vimrc.bundles

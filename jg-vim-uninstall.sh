@@ -11,6 +11,7 @@ die() {
     exit 1
 }
 
+rm $HOME/.gvimrc
 rm $HOME/.vimrc
 rm $HOME/.vimrc.bundles
 rm $HOME/.vim
