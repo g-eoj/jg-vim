@@ -276,6 +276,9 @@ set nocompatible
   "Make Y consistent with C and D. See :help Y.
   nnoremap Y y$
 
+  "Reset folds.
+  nnoremap <leader>z zMzzza
+
   "Toggle fold.
   nnoremap <MiddleMouse> za
   nnoremap <space> za
