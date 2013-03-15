@@ -23,12 +23,17 @@ set nocompatible
   Bundle 'tpope/vim-fugitive'
   Bundle 'tpope/vim-markdown'
   Bundle 'Wombat'
+
   "Python
   Bundle 'klen/python-mode'
-  "HTML
+
+  "HTML & CSS
   Bundle 'amirh/HTML-AutoCloseTag'
   Bundle 'groenewege/vim-less' 
   Bundle 'hail2u/vim-css3-syntax'
+
+  "JavaScript
+  Bundle 'pangloss/vim-javascript'
 
   "ctrlp
   "surround
