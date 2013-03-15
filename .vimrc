@@ -144,6 +144,64 @@ set nocompatible
 
 "END EXPERIMENTAL }
 
+"GENERAL {
+  " Misc. Behavior
+    set backspace=indent,eol,start    "Make backspaces delete sensibly
+
+    if has ("unix") && "Darwin" != system("echo -n \"$(uname)\"")
+      "On Linux use + register for copy-paste.
+      set clipboard=unnamedplus
+    else
+      "One Mac and Windows, use * register for copy-paste.
+      set clipboard=unnamed
+    end
+
+    set ignorecase		"Do case insensitive matching
+    set incsearch		"Incremental search
+    set mouse=a		"Enable mouse usage (all modes)
+    set pastetoggle=<F12>   "Sane indentation on pastes
+    set smartcase		"Do smart case matching
+    set spelllang=en_us
+    set ttimeout
+    set ttimeoutlen=50
+    " set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
+
+  " Indentation
+    set autoindent                    "Preserve current indent on new lines
+    set expandtab                     "Convert all tabs typed to spaces
+    set shiftround                    "Indent/outdent to nearest tabstop
+    set shiftwidth=2                  "Indent/outdent by x columns
+    set softtabstop=2
+    " set tabstop=2                    "Indentation levels every x columns
+
+  " Buffers
+    set autoread
+    " set autowrite		"Automatically save before commands like :next and :make
+    " set hidden             "Hide buffers when they are abandoned
+
+    "Always switch to current file directory.
+    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://"| lcd %:p:h | endif
+    "Always save and load view.
+    autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+    autocmd BufWinEnter * if expand("%") != "" | loadview | endif
+
+  " Encoding
+    if has("multi_byte")    "if not, we need to recompile
+      if &enc !~? '^u'      "if the locale 'encoding' starts with u or U then Unicode is already set
+        if &tenc == ''
+          let &tenc = &enc  "save the keyboard charset
+        endif
+        set enc=utf-8       "to support Unicode fully, we need to be able to represent all Unicode codepoints in memory
+      endif
+      set fencs=ucs-bom,utf-8,latin1
+      " setg bomb             "default for new Unicode files
+      setg fenc=utf-8      "default for files created from scratch
+    else
+      echomsg 'Warning: Multibyte support is not compiled-in.'
+    endif
+
+"END GENERAL }
+
 "UI {
   set background=dark
   if filereadable(expand("~/.vim/bundle/Wombat/colors/wombat.vim"))
@@ -201,64 +259,6 @@ set nocompatible
   endif
 
 "END UI }
-
-"GENERAL {
-  " Misc. Behavior
-    set backspace=indent,eol,start    "Make backspaces delete sensibly
-
-    if has ("unix") && "Darwin" != system("echo -n \"$(uname)\"")
-      "On Linux use + register for copy-paste.
-      set clipboard=unnamedplus
-    else
-      "One Mac and Windows, use * register for copy-paste.
-      set clipboard=unnamed
-    end
-
-    set ignorecase		"Do case insensitive matching
-    set incsearch		"Incremental search
-    set mouse=a		"Enable mouse usage (all modes)
-    set pastetoggle=<F12>   "Sane indentation on pastes
-    set smartcase		"Do smart case matching
-    set spelllang=en_us
-    set ttimeout
-    set ttimeoutlen=50
-    " set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
-
-  " Indentation
-    set autoindent                    "Preserve current indent on new lines
-    set expandtab                     "Convert all tabs typed to spaces
-    set shiftround                    "Indent/outdent to nearest tabstop
-    set shiftwidth=2                  "Indent/outdent by x columns
-    set softtabstop=2
-    " set tabstop=4                    "Indentation levels every x columns
-
-  " Buffers
-    set autoread
-    " set autowrite		"Automatically save before commands like :next and :make
-    " set hidden             "Hide buffers when they are abandoned
-
-    "Always switch to current file directory.
-    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://"| lcd %:p:h | endif
-    "Always save and load view.
-    autocmd BufWinLeave * if expand("%") != "" | mkview | endif
-    autocmd BufWinEnter * if expand("%") != "" | loadview | endif
-
-  " Encoding
-    if has("multi_byte")    "if not, we need to recompile
-      if &enc !~? '^u'      "if the locale 'encoding' starts with u or U then Unicode is already set
-        if &tenc == ''
-          let &tenc = &enc  "save the keyboard charset
-        endif
-        set enc=utf-8       "to support Unicode fully, we need to be able to represent all Unicode codepoints in memory
-      endif
-      set fencs=ucs-bom,utf-8,latin1
-      " setg bomb             "default for new Unicode files
-      setg fenc=utf-8      "default for files created from scratch
-    else
-      echomsg 'Warning: Multibyte support is not compiled-in.'
-    endif
-
-"END GENERAL }
 
 "MAPPINGS {
   let mapleader = ',' 
