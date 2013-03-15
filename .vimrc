@@ -121,13 +121,6 @@ set nocompatible
   "   set encoding=utf-8
   " endif
 
-  if &listchars ==# 'eol:$'
-    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-    if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
-      let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
-    endif
-  endif
-
   " set fileformats+=mac
 
   " if &history < 1000
@@ -205,6 +198,13 @@ set nocompatible
     set statusline+=\ [%{&ff}/%Y]            "Filetype
     set statusline+=\ [%{getcwd()}]          "Current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  "Right aligned file nav info
+  endif
+
+  if &listchars ==# 'eol:$'
+    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+    if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+      let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
+    endif
   endif
 
   if !&scrolloff
