@@ -326,6 +326,7 @@ set nocompatible
     " let g:nerdtree_tabs_open_on_gui_startup=0
 
   "Python Mode
+    let g:pymode_lint_cwindow = 0
     "Disable if python support not present
     if !has('python')
       let g:pymode = 1
