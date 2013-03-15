@@ -179,11 +179,15 @@ set nocompatible
     " set autowrite		"Automatically save before commands like :next and :make
     " set hidden             "Hide buffers when they are abandoned
 
-    "Always switch to current file directory.
-    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://"| lcd %:p:h | endif
-    "Always save and load view.
-    autocmd BufWinLeave * if expand("%") != "" | mkview | endif
-    autocmd BufWinEnter * if expand("%") != "" | loadview | endif
+    if has("autocmd")
+      "Always switch to current file directory.
+      autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://"| lcd %:p:h | endif
+      "Always save and load view.
+      autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+      autocmd BufWinEnter * if expand("%") != "" | loadview | endif
+      "Source the vimrc file after saving it.
+      autocmd BufWritePost .vimrc source $MYVIMRC
+    endif
 
   " Encoding
     if has("multi_byte")    "if not, we need to recompile
