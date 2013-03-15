@@ -117,10 +117,6 @@ set nocompatible
 
   " set nrformats-=octal
 
-  " if &encoding ==# 'latin1' && has('gui_running')
-  "   set encoding=utf-8
-  " endif
-
   " set fileformats+=mac
 
   " if &history < 1000
@@ -190,18 +186,18 @@ set nocompatible
     endif
 
   " Encoding
-    if has("multi_byte")    "if not, we need to recompile
-      if &enc !~? '^u'      "if the locale 'encoding' starts with u or U then Unicode is already set
-        if &tenc == ''
-          let &tenc = &enc  "save the keyboard charset
-        endif
-        set enc=utf-8       "to support Unicode fully, we need to be able to represent all Unicode codepoints in memory
+    " if &encoding ==# 'latin1' && has('gui_running')
+    "   set encoding=utf-8
+    " endif
+
+    if has("multi_byte")
+      if &termencoding == ""
+        let &termencoding = &encoding
       endif
-      set fencs=ucs-bom,utf-8,latin1
-      " setg bomb             "default for new Unicode files
-      setg fenc=utf-8      "default for files created from scratch
-    else
-      echomsg 'Warning: Multibyte support is not compiled-in.'
+      set encoding=utf-8
+      setglobal fileencoding=utf-8
+      "setglobal bomb
+      set fileencodings=ucs-bom,utf-8,latin1
     endif
 
 "END GENERAL }
