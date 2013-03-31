@@ -108,12 +108,15 @@ set nocompatible
 
 "EXPERIMENTAL {
 
+  set cursorline
+  set lazyredraw
+
   " scriptencoding utf-8
   " set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
   " set virtualedit=onemore         " allow for cursor beyond last character
 
   " set complete-=i
-  " set smarttab
+  set smarttab
 
   " set nrformats-=octal
 
@@ -219,7 +222,6 @@ set nocompatible
   endif
 
   syntax on
-  set cursorline
   set display+=lastline
   set number
   set showbreak=...
