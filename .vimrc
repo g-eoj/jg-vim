@@ -329,6 +329,7 @@ set nocompatible
     if !has('python')
       let g:pymode = 1
     endif
+    nnoremap <leader>lw :PyLintWindowToggle<CR> 
 
 "END PLUGINS }
 
