@@ -15,6 +15,8 @@ set nocompatible
   call vundle#rc()
 
   Bundle 'gmarik/vundle'
+
+  Bundle 'airblade/vim-gitgutter'
   Bundle 'godlygeek/csapprox'
   Bundle 'nathanaelkane/vim-indent-guides'
   Bundle 'scrooloose/nerdtree'
@@ -302,6 +304,12 @@ set nocompatible
     nnoremap <silent> <leader>gb :Gblame<CR>
     nnoremap <silent> <leader>gl :Glog<CR>
     nnoremap <silent> <leader>gp :Git push<CR>
+
+  "GitGutter
+    let g:gitgutter_enabled = 0
+    nnoremap <silent> <leader>g] :GitGutterNextHunk<CR>
+    nnoremap <silent> <leader>g[ :GitGutterPrevHunk<CR>
+    nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 
   "Indent Guides
     let g:indent_guides_start_level = 2
