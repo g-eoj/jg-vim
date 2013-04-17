@@ -18,6 +18,7 @@ set nocompatible
 
   Bundle 'airblade/vim-gitgutter'
   Bundle 'godlygeek/csapprox'
+  Bundle 'mbbill/undotree'
   Bundle 'nathanaelkane/vim-indent-guides'
   Bundle 'scrooloose/nerdtree'
   " Bundle 'scrooloose/syntastic' " Removed -> install issue. Does it conflict with Python Mode? Needs tidy for html.
@@ -61,7 +62,6 @@ set nocompatible
     " Bundle 'Lokaltog/vim-easymotion'
     " Bundle 'jistr/vim-nerdtree-tabs'
     " Bundle 'corntrace/bufexplorer'
-    " Bundle 'mbbill/undotree'
     " Bundle 'myusuf3/numbers.vim'
     " }
 
@@ -166,6 +166,12 @@ set nocompatible
     set ttimeout
     set ttimeoutlen=50
     " set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
+
+    if has('persistent_undo')
+      set undofile
+      set undolevels=1000
+      set undoreload=10000
+    endif
 
   " Indentation
     set autoindent                    "Preserve current indent on new lines
@@ -338,6 +344,11 @@ set nocompatible
       let g:pymode = 1
     endif
     nnoremap <leader>lw :PyLintWindowToggle<CR> 
+
+  "UndoTree
+    let g:undotree_SetFocusWhenToggle = 1
+    nnoremap <Leader>u :UndotreeToggle<CR>
+
 
 "END PLUGINS }
 
