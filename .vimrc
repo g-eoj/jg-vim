@@ -147,7 +147,7 @@ set nocompatible
 
 "GENERAL {
   " Misc. Behavior
-    set backspace=indent,eol,start    "Make backspaces delete sensibly
+    set backspace=indent,eol,start
 
     if has ("unix") && "Darwin" != system("echo -n \"$(uname)\"")
       "On Linux use + register for copy-paste.
@@ -157,15 +157,16 @@ set nocompatible
       set clipboard=unnamed
     end
 
-    set ignorecase		"Do case insensitive matching
-    set incsearch		"Incremental search
-    set mouse=a		"Enable mouse usage (all modes)
-    set pastetoggle=<F12>   "Sane indentation on pastes
-    set smartcase		"Do smart case matching
+    set history=1000
+    set ignorecase
+    set incsearch
+    set mouse=a
+    set pastetoggle=<F12>
+    set smartcase
     set spelllang=en_us
     set ttimeout
     set ttimeoutlen=50
-    " set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
+    " set viewoptions=folds,options,cursor,unix,slash
 
     if has('persistent_undo')
       set undofile
@@ -174,17 +175,17 @@ set nocompatible
     endif
 
   " Indentation
-    set autoindent                    "Preserve current indent on new lines
-    set expandtab                     "Convert all tabs typed to spaces
-    set shiftround                    "Indent/outdent to nearest tabstop
-    set shiftwidth=2                  "Indent/outdent by x columns
+    set autoindent
+    set expandtab
+    set shiftround
+    set shiftwidth=2
     set softtabstop=2
-    " set tabstop=2                    "Indentation levels every x columns
+    " set tabstop=4
 
   " Buffers
     set autoread
-    " set autowrite		"Automatically save before commands like :next and :make
-    " set hidden             "Hide buffers when they are abandoned
+    " set autowrite "Automatically save before commands like :next and :make
+    set hidden
 
     if has("autocmd")
       "Always switch to current file directory.
@@ -197,10 +198,6 @@ set nocompatible
     endif
 
   " Encoding
-    " if &encoding ==# 'latin1' && has('gui_running')
-    "   set encoding=utf-8
-    " endif
-
     if has("multi_byte")
       if &termencoding == ""
         let &termencoding = &encoding
