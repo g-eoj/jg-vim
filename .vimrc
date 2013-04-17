@@ -108,43 +108,6 @@ set nocompatible
 
 "END VUNDLE }
 
-"EXPERIMENTAL {
-
-  set cursorline
-  set lazyredraw
-
-  " scriptencoding utf-8
-  " set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
-  " set virtualedit=onemore         " allow for cursor beyond last character
-
-  " set complete-=i
-  set smarttab
-
-  " set nrformats-=octal
-
-  " set fileformats+=mac
-
-  " if &history < 1000
-  "   set history=1000
-  " endif
-  set viminfo^=!
-
-  "Allow color schemes to do bright colors without forcing bold.
-  " if &t_Co == 8 && $TERM !~# '^linux'
-  "   set t_Co=16
-  " endif
-
-  " if !exists('g:netrw_list_hide')
-  "   let g:netrw_list_hide = '^\.,\~$,^tags$'
-  " endif
-
-  "Load matchit.vim, but only if the user hasn't installed a newer version.
-  if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-    runtime! macros/matchit.vim
-  endif
-
-"END EXPERIMENTAL }
-
 "GENERAL {
   " Misc. Behavior
     set backspace=indent,eol,start
@@ -382,5 +345,68 @@ set nocompatible
   call InitializeDirectories()
 
 "END FUNCTIONS }
+
+"EXPERIMENTAL {
+
+  " highlight link SignColumn LineNr
+
+  " Always show line numbers, but only in current window.
+  set number
+  :au WinEnter * :setlocal number
+  :au WinLeave * :setlocal nonumber
+
+  " Automatically resize vertical splits.
+  " :au WinEnter * :set winfixheight
+  " :au WinEnter * :wincmd =
+
+  " set cursorline
+  set lazyredraw
+
+  " scriptencoding utf-8
+  " set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
+  " set virtualedit=onemore         " allow for cursor beyond last character
+
+  " set complete-=i
+  set smarttab
+
+  " set nrformats-=octal
+
+  " set fileformats+=mac
+
+  set viminfo^=!
+
+  set backup " Backups are nice ...
+
+  " let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+  " if isdirectory(expand(s:dir))
+  "   if &directory =~# '^\.,'
+  "     let &directory = expand(s:dir) . '/swap//,' . &directory
+  "   endif
+  "   if &backupdir =~# '^\.,'
+  "     let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
+  "   endif
+  "   if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
+  "     let &undodir = expand(s:dir) . '/undo//,' . &undodir
+  "   endif
+  " endif
+  " if exists('+undofile')
+  "   set undofile
+  " endif
+
+  "Allow color schemes to do bright colors without forcing bold.
+  " if &t_Co == 8 && $TERM !~# '^linux'
+  "   set t_Co=16
+  " endif
+
+  " if !exists('g:netrw_list_hide')
+  "   let g:netrw_list_hide = '^\.,\~$,^tags$'
+  " endif
+
+  "Load matchit.vim, but only if the user hasn't installed a newer version.
+  if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+    runtime! macros/matchit.vim
+  endif
+
+"END EXPERIMENTAL }
 
 " vim: set foldmarker={,} foldmethod=marker tw=0:
