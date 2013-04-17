@@ -1,4 +1,4 @@
-set nocompatible               
+set nocompatible
 
 "WINDOWS COMPATIBLE {
   "On Windows use '.vim' instead of 'vimfiles';
@@ -10,7 +10,6 @@ set nocompatible
 
 "VUNDLE {
   filetype off
-
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
 
@@ -98,7 +97,6 @@ set nocompatible
 
     " Javascript {
     " Bundle 'leshill/vim-json'
-    " Bundle 'pangloss/vim-javascript'
     " Bundle 'briancollins/vim-jst'
     " }
 
@@ -181,7 +179,7 @@ set nocompatible
   if has('gui_running')
     set guifont=Consolas:h10:cDEFAULT
     set guioptions-=r
-    set guioptions-=T           
+    set guioptions-=T
   else
     if &term == 'xterm' || &term == 'screen'
       "Enable 256 colors to stop the CSApprox warning.
@@ -193,9 +191,9 @@ set nocompatible
   set display+=lastline
   set number
   set showbreak=...
-  set showmatch		"Show matching brackets.
+  set showmatch
   set showmode
-  " set textwidth=78       "Wrap at this column
+  " set textwidth=78
   set wildmenu
   " set wildmode=list:longest,full
   if has('cmdline_info')
@@ -228,7 +226,7 @@ set nocompatible
 "END UI }
 
 "MAPPINGS {
-  let mapleader = ',' 
+  let mapleader = ','
 
   "Easier moving in tabs and windows.
   map <C-H> <C-W>h
@@ -295,7 +293,7 @@ set nocompatible
     map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
     map <leader>e :NERDTreeFind<CR>
     nmap <leader>nt :NERDTreeFind<CR>
-    nmap <leader>nb :NERDTreeFromBookmark 
+    nmap <leader>nb :NERDTreeFromBookmark
 
   "Python Mode
     let g:pymode_lint_cwindow = 0
@@ -303,12 +301,11 @@ set nocompatible
     if !has('python')
       let g:pymode = 1
     endif
-    nnoremap <leader>lw :PyLintWindowToggle<CR> 
+    nnoremap <leader>lw :PyLintWindowToggle<CR>
 
   "UndoTree
     let g:undotree_SetFocusWhenToggle = 1
     nnoremap <Leader>u :UndotreeToggle<CR>
-
 
 "END PLUGINS }
 
