@@ -23,6 +23,7 @@ set nocompatible
   " Bundle 'scrooloose/syntastic' " Removed -> install issue. Does it conflict with Python Mode? Needs tidy for html.
   Bundle 'tpope/vim-commentary'
   Bundle 'tpope/vim-fugitive'
+  Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-markdown'
   Bundle 'Wombat'
 
@@ -31,14 +32,13 @@ set nocompatible
 
   "HTML & CSS
   Bundle 'amirh/HTML-AutoCloseTag'
-  Bundle 'groenewege/vim-less' 
+  Bundle 'groenewege/vim-less'
   Bundle 'hail2u/vim-css3-syntax'
 
   "JavaScript
   Bundle 'pangloss/vim-javascript'
 
   "ctrlp
-  "surround
   "tabularize
 
   "from spf13 {
@@ -52,7 +52,6 @@ set nocompatible
     " endif
 
     " General {
-    " Bundle 'tpope/vim-surround'
     " Bundle 'AutoClose'
     " Bundle 'kien/ctrlp.vim'
     " Bundle 'vim-scripts/sessionman.vim'
