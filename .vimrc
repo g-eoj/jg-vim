@@ -178,6 +178,7 @@ set nocompatible
   if has('gui_running')
     set guifont=Consolas:h10:cDEFAULT
     set guioptions-=r
+    set guioptions-=L
     set guioptions-=T
   else
     if &term == 'xterm' || &term == 'screen'
