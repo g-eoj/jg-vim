@@ -293,7 +293,7 @@ set nocompatible
     map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
     map <leader>e :NERDTreeFind<CR>
     nmap <leader>nt :NERDTreeFind<CR>
-    nmap <leader>nb :NERDTreeFromBookmark
+    nmap <leader>nb :NERDTreeFromBookmark<Space>
 
   "Python Mode
     let g:pymode_lint_cwindow = 0
