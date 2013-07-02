@@ -21,6 +21,7 @@ set nocompatible
   Bundle 'nathanaelkane/vim-indent-guides'
   Bundle 'scrooloose/nerdtree'
   " Bundle 'scrooloose/syntastic' " Removed -> install issue. Does it conflict with Python Mode? Needs tidy for html.
+  Bundle 'Shougo/unite.vim'
   Bundle 'tpope/vim-commentary'
   Bundle 'tpope/vim-fugitive'
   Bundle 'tpope/vim-surround'
@@ -38,7 +39,6 @@ set nocompatible
   "JavaScript
   Bundle 'pangloss/vim-javascript'
 
-  "ctrlp
   "tabularize
 
   "from spf13 {
@@ -53,7 +53,6 @@ set nocompatible
 
     " General {
     " Bundle 'AutoClose'
-    " Bundle 'kien/ctrlp.vim'
     " Bundle 'vim-scripts/sessionman.vim'
     " Bundle 'matchit.zip'
     " Bundle 'Lokaltog/vim-powerline'
@@ -306,6 +305,13 @@ set nocompatible
   "UndoTree
     let g:undotree_SetFocusWhenToggle = 1
     nnoremap <Leader>ut :UndotreeToggle<CR>
+
+  "Unite
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    nnoremap <leader>ff :<C-u>Unite -start-insert buffer file_rec<CR>
+    nnoremap <leader>fl :<C-u>Unite -start-insert line<CR>
+    let g:unite_source_history_yank_enable = 1
+    nnoremap <leader>fy :<C-u>Unite history/yank<CR>
 
 "END PLUGINS }
 
