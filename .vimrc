@@ -305,7 +305,7 @@ set nocompatible
 
   "UndoTree
     let g:undotree_SetFocusWhenToggle = 1
-    nnoremap <Leader>u :UndotreeToggle<CR>
+    nnoremap <Leader>ut :UndotreeToggle<CR>
 
 "END PLUGINS }
 
