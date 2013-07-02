@@ -346,6 +346,7 @@ set nocompatible
 "EXPERIMENTAL {
 
   " highlight link SignColumn LineNr
+  highlight clear SignColumn
 
   " Always show line numbers, but only in current window.
   set number
@@ -372,7 +373,7 @@ set nocompatible
 
   set viminfo^=!
 
-  set backup " Backups are nice ...
+  " set backup " Backups are nice ...
 
   " let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
   " if isdirectory(expand(s:dir))
