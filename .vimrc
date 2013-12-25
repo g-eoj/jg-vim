@@ -35,6 +35,7 @@ set nocompatible
 
   "HTML & CSS
   Bundle 'amirh/HTML-AutoCloseTag'
+  Bundle 'ap/vim-css-color'
   Bundle 'groenewege/vim-less'
   Bundle 'hail2u/vim-css3-syntax'
 
