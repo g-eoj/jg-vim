@@ -42,6 +42,11 @@ set nocompatible
   "JavaScript
   Bundle 'pangloss/vim-javascript'
 
+  "EXPERIMENTAL
+  " Bundle 'ciaranm/detectindent'
+  " Bundle 'mbadran/headlights'
+  " Bundle 'tpope/vim-sleuth'
+
   "tabularize
 
   "from spf13 {
